@@ -1,11 +1,12 @@
 {% extends 'gallery/base.html' %}
+{% load gallery_extras %}
 
 {% block content %}
     <h1>{{ photo.name }}</h1>
     <h3>Uploaded by: {{ photo.user.username }}</h3>
 
     <article>
-        {{ photo.description }}
+        {{ photo.description|render_markdown }}
     </article>
 
     <figure>

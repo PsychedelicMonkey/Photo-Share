@@ -1,6 +1,7 @@
 from PIL import Image
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 
 class Album(models.Model):
@@ -27,6 +28,9 @@ class Photo(models.Model):
 
     def __str__(self):
         return self.name if self.name else self.image.name
+
+    def get_absolute_url(self):
+        return reverse('photo-detail', kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
         super(Photo, self).save(*args, **kwargs)
