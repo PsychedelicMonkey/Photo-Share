@@ -1,0 +1,14 @@
+{% extends 'gallery/base.html' %}
+
+{% block content %}
+    <h1>{{ photo.name }}</h1>
+    <h3>Uploaded by: {{ photo.user.username }}</h3>
+
+    <article>
+        {{ photo.description }}
+    </article>
+
+    <figure>
+        <img src="{{ photo.image.url }}" alt="{{ photo.name }}" />
+    </figure>
+{% endblock %}

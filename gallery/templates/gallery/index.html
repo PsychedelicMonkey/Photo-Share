@@ -1,15 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <main>
-        <h1>Django Photography</h1>
-    </main>
-</body>
-</html>
+{% extends 'gallery/base.html' %}
+
+{% block content %}
+    <h1>Django Photography</h1>
+
+    {% for photo in photos %}
+        <a href="{% url 'photo-detail' photo.pk %}">
+            <figure>
+                <img src="{{ photo.image.url }}" alt="{{ photo.name }}" />
+            </figure>
+        </a>
+    {% endfor %}
+{% endblock %}
