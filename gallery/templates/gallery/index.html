@@ -1,13 +1,16 @@
 {% extends 'gallery/base.html' %}
+{% load i18n %}
 
 {% block content %}
-    <h1>Django Photography</h1>
+    <h1>{% translate 'Django Photography' %}</h1>
 
-    {% for photo in photos %}
-        <a href="{% url 'photo-detail' photo.pk %}">
-            <figure>
-                <img src="{{ photo.image.url }}" alt="{{ photo.name }}" />
-            </figure>
-        </a>
-    {% endfor %}
+    <div class="gallery">
+        {% for photo in photos %}
+            <a href="{% url 'photo-detail' photo.pk %}">
+                <figure>
+                    <img src="{{ photo.image.url }}" alt="{{ photo.name }}" />
+                </figure>
+            </a>
+        {% endfor %}
+    </div>
 {% endblock %}

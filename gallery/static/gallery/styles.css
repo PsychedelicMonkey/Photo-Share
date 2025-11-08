@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.gallery img {
+    width: 100%;
+}
+
+.gallery img:hover {
+    transform: scale(1.2, 1.2);
+}
